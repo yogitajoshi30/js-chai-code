@@ -33,5 +33,27 @@ let myObj = { name: "yogita", age: 22 }; //object
 const myFunction = function () {
   console.log("Hello World");
 }; //function
- 
+
 //sare non-primitive data-types ka data-type object hi bola jata hai, but function ka data-type object function bola jata hai.
+
+// +++++++++++++++++++++++++++++++++++++++++++
+//There are 2 types of memories:
+//1. Stack Memory: Ye Primitive data-type mein use hoti hai. Jb bhi koi memory stack mein define hoti hai, to jo bhi variable hmne declare kra hota hai hmein uski ek copy milti hai.
+
+let myYoutubename = "yogitajoshidotcom";
+let anothername = myYoutubename;
+anothername = "yogitajoshi";
+console.log(anothername); // => yogitajoshi
+console.log(myYoutubename); // => yogitajoshidotcom
+
+//2. Heap Memory: Ye Non-Primitive data-type mein use hoti hai. Jb bhi ek memory heap ke andar define hoti hai, to isse hmein original value ka reference milta hai, mtlb jo bhi change hm krenge vo original value mein bhi hoga.
+
+let userOne = {
+  email: "user1@google.com",
+  upi: "user@oksbi",
+};
+let userTwo = userOne;
+userTwo.email = "user2@google.com";
+
+console.log(userOne.email); // => user2@google.com
+console.log(userTwo.email); // => user2@google.com
