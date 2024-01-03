@@ -68,16 +68,18 @@ const users = [
 const course = {
   coursename: "js in hindi",
   price: "999",
-  courseInstructor: "hitesh",
+  courseInstructor: "yogita",
 };
 
-// course.courseInstructor
+//console.log(course.courseInstructor); => yogita =>normally hm objects ki keys ko aise access kr skte hai but agr hm code ko thoda neat bnana chahte hai to neeche vala tareeka bhi use kr skte hai
 
-const { courseInstructor: instructor } = course;
+//const { courseInstructor } = course; => yhe pe hmne = ke right mein object ka naam btaya ki hm konse object se key access krna chah rahe hai, and left side pe {} ke andar key btayi jo access krni hai
+//console.log(courseInstructor); => yogita
 
-// console.log(courseInstructor);
-console.log(instructor);
+//const { courseInstructor: instructor } = course; => agr hmein key ka naam chnge krna hai to yha pe hm vo bhi kr skte hai, key ke purane naam ke baad : lgake uska naya naam likhenge, jse courseInstructor ka naam hmne instructor rkh diya
+//console.log(instructor); => yogita
 
+//-------------API---------------
 // {
 //     "name": "hitesh",
 //     "coursename": "js in hindi",
