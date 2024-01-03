@@ -25,11 +25,11 @@ const JsUser = {
 //object mein values kisi bhi type ki de skte hai, number, strings, boolean, arrays, objects
 
 //how to access objects:
-//1. console.log(JsUser.email) =>yogita@google.com
+//1. console.log(JsUser.email) =>yogita@google.com, hmesha hmein yhi way use krna chahiye, baki sare kbhi kbhi zrurt krne pe krne chahiye
 //2. console.log(JsUser[email]); =>email is not defined, agr hm is way se access krenge to hmein ise string ki trh call krna pdega
 
 //3. console.log(JsUser["email"]) =>yogita@google.com
-//4. console.log(JsUser["full name"]) => Yogita Joshi
+// console.log(JsUser["full name"]) => Yogita Joshi
 
 //console.log(JsUser.mySym); => mykey1 , jb hm symbol ko . vale way se access krenge to vo o/p to vhi dega to bracket lga k dega but ye iske right syntax nahi hai
 //console.log(typeof JsUser.mySym); => string , ye symbol ki value ka data type hai
