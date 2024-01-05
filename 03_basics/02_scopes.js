@@ -26,40 +26,48 @@ if (true) {
 //console.log(a); => 100
 //console.log(c); => 30, ye output isliye aaya because hmne global vale mein to 300 likha but if block k andar var c; fir se likhne pe vo update ho gya, var k saath yhi problem hai ki vo scope ko follow nahi krta
 
-/*function one() {
-  const username = "hitesh";
+function one() {
+  const username = "yogita";
 
   function two() {
     const website = "youtube";
-    console.log(username);
+    //console.log(username); => yogita, function two is the child of function one so it can access any variable of its parent, i.e.,function one
   }
-  // console.log(website);
+  //console.log(website); => website is not defined, because website's scope is under function two only , so we can't access it outside that
 
-  two();
+  two(); // => jb two ko call kra to function two execute hua, usmein hmne username console kraya hai
 }
+one();
 
-// one()
-
+//jsa function mein ho raha tha vsa hi if mein bhi hoga
 if (true) {
-  const username = "hitesh";
-  if (username === "hitesh") {
+  const username = "yogita";
+  if (username === "yogita") {
     const website = " youtube";
-    // console.log(username + website);
+    //console.log(username + website); => yogita youtube
   }
-  // console.log(website);
+  //console.log(website); => website is not defined, again, because website's scope is under  the inside vala if block only , so we can't access it outside that
 }
 
-// console.log(username);
+//console.log(username); => username is not defined, it's also bcoz username is defined under if block and we can't access it outside that
 
 // ++++++++++++++++++ interesting ++++++++++++++++++
 
-console.log(addone(5));
+//addOne(5); => no error
+//console.log(addOne(5)); => 6, so we can see that when we'll declare the function with this type, when we don't hold it in a variable, then we can call or console the function before or after its declaration and it'll gave no error
 
-function addone(num) {
+function addOne(num) {
+  //ye or neeche jo function bnaya hai dono same hi baat hai, bs neeche hmne function ko variable mein hold kr liya hai or yha nahi, ise function hi bolenge, but neeche vale ko expression bhi bol skte hai
   return num + 1;
 }
+//addOne(5);
+//console.log(addOne(5)); => 6
 
-addTwo(5);
+//addTwo(5); => Cannot access 'addTwo' before initialization, here we are getting this error, because we are holding the function in a variable
+//console.log(addTwo(5)); => Cannot access 'addTwo' before initialization, here we are getting this error, because we are holding the function in a variable
+
 const addTwo = function (num) {
   return num + 2;
-};*/
+};
+//addTwo(5);
+//console.log(addTwo(5)); => 7
