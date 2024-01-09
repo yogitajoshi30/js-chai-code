@@ -18,15 +18,15 @@
 /*function chai(){
     // named IIFE
     console.log(`DB CONNECTED`);
-}() => }() SyntaxError: Unexpected token ')' */
+}() => }() SyntaxError: Unexpected token ')'*/
 
 /*(function chai() {
-  // named IIFE => yha pe hmne iife ko naam diya hai chai to ye named iife hai
-  console.log(`DB CONNECTED`); => DB CONNECTED
+    // named IIFE => yha pe hmne iife ko naam diya hai chai to ye named iife hai
+    console.log(`DB CONNECTED`); => DB CONNECTED
 })(); upar vale function mein or is vale function mein ye difference hai ki usmein hmne function define krne se pehle parentheses nahi
 lgaya or ismein lgaya hai*/
 
 /*((name) => {
     //ye arrow function se bnaya hai, same hoga ye bhi
-  console.log(`DB CONNECTED TWO ${name}`); => DB CONNECTED TWO yogita
+    console.log(`DB CONNECTED TWO ${name}`); => DB CONNECTED TWO yogita
 })("yogita");*/
