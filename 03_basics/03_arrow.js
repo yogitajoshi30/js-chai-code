@@ -62,6 +62,7 @@ const chai = () => {
 //chai();
 
 //+++++++++++++++++++All the ways to write an arrow function+++++++++++++++++++++++
+
 /*1. const addTwo = (num1, num2) => {
   return num1 + num2;
 }; */ //curly braces lgayenge to return keyword likhna hi pdega
