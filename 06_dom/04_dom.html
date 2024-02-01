@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | DOM</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    //Create
+    function addLanguage(langName) {
+        const li = document.createElement('li'); //ye hmne 'li' element create kr liya
+        li.innerHTML = `${langName}`//then li mein hmne langName add krne k liye innerHTML ka use kra  
+        document.querySelector('.language').appendChild(li)//then querySelector ki help se hmne language class mein us li element ko append kra liya jo hmne create kra tha 
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+    //The innerHTML property in JavaScript is used to get or set the HTML content of an element. While it provides a convenient way to manipulate the HTML content of an element, it may not always be the most optimized approach due to potential performance implications, especially when dealing with large amounts of HTML or frequent updates to the DOM. Use textContent instead of innerHTML when possible: If you only need to manipulate text content and not HTML markup, using the textContent property is usually faster and safer because it avoids parsing HTML.
+
+    function addOptiLanguage(langName) {
+        const li = document.createElement('li');//ye hmne 'li' element create kr diya
+        li.appendChild(document.createTextNode(langName))//then hmne li mein appendChild ka use krke document mein createTextNode mein hm jo bhi langName pass krenge vo add kra diya
+        document.querySelector('.language').appendChild(li)//then hmein li mein jo bhi langName milega hmne use querySelector mein language class mein append kra diya appendChild ka use krke
+    }
+    addOptiLanguage('golang')
+
+    //Edit
+    const secondLang = document.querySelector("li:nth-child(2)")//hmne ek variable bnaya secondLang then querySelector k help se li k 2nd child ko choose kra hai edit krne k liye
+    console.log(secondLang);
+    //secondLang.innerHTML = "Mojo" => fir hmne secondLang ki innerHTML mein vo language daal di jo hm li k 2nd child se replace krana chahte hai
+    const newli = document.createElement('li')//ye hmne new variable bnaya newli ismein hmne ek new li bnaya with the help of createElement
+    newli.textContent = "Mojo"//then textContent ki help se newli mein ek text daal diya
+    secondLang.replaceWith(newli)//then secondLang mein jo rkha hua tha, jo ki li ka 2nd child hai, use hmne usse replace kra diya jo newli mein rkha hua hai, mtlb ki Mojo
+
+    //edit
+    const firstLang = document.querySelector("li:first-child")//ye hmne ek new variable bnaya firstLang, ismein hmne querySelector ki help se li ka first child select kr liya 
+    firstLang.outerHTML = '<li>TypeScript</li>'//then firstLang pe outerHTML lga k hmne bta diya ki li k first child ko kisse replace krna hai, or uske liye hmein proper li tags lgane pde jiske andar hmne replacing text likha hai 
+
+    //remove
+    const lastLang = document.querySelector('li:last-child')// ye lastLang variable bnaya, ismein hmne querySelector ki help se li ka last child select kr liya 
+    lastLang.remove()//and then remove method ka use krke lastLang mein jo rkha hai mtlb ki li ka last child use remove kra diya
+
+
+</script>
+
+</html>
