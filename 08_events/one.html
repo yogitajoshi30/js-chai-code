@@ -31,21 +31,26 @@
     </div>
 </body>
 <script>
-    document.getElementById('owl').onclick = function () {
+    /*document.getElementById('owl').onclick = function () {
         alert("owl clicked")
-    }
+    }*/
 
     // attachEvent()
-    // jQuery - on
+    // jQuery - onEvent Listener
+
+    document.getElementById('owl').addEventListener('click', function () {
+        alert("owl clicked again")
+    })
+
 
     // type, timestamp, defaultPrevented
     // target, toElement, srcElement, currentTarget,
     // clientX, clientY, screenX, screenY
     // altkey, ctrlkey, shiftkey, keyCode
 
-    /*document.getElementById('images').addEventListener('click', function (e) {
+    document.getElementById('images').addEventListener('click', function (e) {
         console.log("clicked inside the ul");
-    }, false)*/
+    }, false)
 
     // document.getElementById('owl').addEventListener('click', function(e){
     //     console.log("owl clicked");
