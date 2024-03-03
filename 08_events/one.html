@@ -34,6 +34,15 @@
             alt=""
           />
         </li>
+        <!--<li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+            onclick="alert('owl')" //=> This is not a good approach , and we should avoid it, we should not inject events in html, it should be done in javascript
+          />
+        </li>-->
         <li>
           <img
             width="200px"
@@ -58,10 +67,13 @@
       </ul>
     </div>
   </body>
-  <script>
+  <!--<script>
+    //JAVASCRIPT KE ANDAR JITNE BHI EVENTS HOTE HAI VO SEQUENTIALLY HI RUN HOTE HAI, KUCH EXCEPTIONS HOTE HAI JO HM YHA DEKHENGE
+
+
     /*document.getElementById('owl').onclick = function () {
         alert("owl clicked")
-    }*/
+    }*/ =>=> This is another approach to apply events on html elements, but this is also not a good approach as it doesn't provides much information and so we should use event listeners bcoz they not only give us the onclick functionality but they give us the propagation ability 
 
     // attachEvent()
     // jQuery - onEvent Listener
@@ -72,6 +84,18 @@
     // clientX, clientY, screenX, screenY
     // altkey, ctrlkey, shiftkey, keyCode
 
+    /*In JavaScript, the `addEventListener()` method is used to attach an event handler function to an HTML element. This method allows you to specify the event you want to listen for (such as click, mouseover, keypress, etc.) and define the function that should be executed when the event occurs.
+    
+    Here's the basic syntax of `addEventListener()`:
+
+    element.addEventListener(event, function, useCapture);
+
+    - `element`: The HTML element to which you want to attach the event listener.
+    - `event`: A string representing the event type (e.g., "click", "mouseover", "keydown").
+    - `function`: The function to be executed when the specified event occurs.
+    - `useCapture` (optional): A boolean value indicating whether to use event capturing (true) or event bubbling (false). This parameter is optional and defaults to false.
+
+*/
     /*document.getElementById('owl').addEventListener('click', function () {
         alert("owl clicked again")
     })*/
@@ -120,5 +144,5 @@
         removeIt.remove();
       }
     });
-  </script>
+  </script>-->
 </html>
