@@ -75,14 +75,9 @@
         alert("owl clicked")
     }*/ =>=> This is another approach to apply events on html elements, but this is also not a good approach as it doesn't provides much information and so we should use event listeners bcoz they not only give us the onclick functionality but they give us the propagation ability 
 
-    // attachEvent()
-    // jQuery - onEvent Listener
+    // attachEvent()- attachEvent was a method used in older versions of Internet Explorer to attach event handlers to HTML elements. It was specific to Internet Explorer and not part of the standard DOM (Document Object Model) API. Its counterpart in modern browsers is the addEventListener method.
 
-    //SOME EVENTS TO STUDY -
-    // type, timestamp, defaultPrevented
-    // target, toElement, srcElement, currentTarget,
-    // clientX, clientY, screenX, screenY
-    // altkey, ctrlkey, shiftkey, keyCode
+    // jQuery - onEvent Listener
 
     /*In JavaScript, the `addEventListener()` method is used to attach an event handler function to an HTML element. This method allows you to specify the event you want to listen for (such as click, mouseover, keypress, etc.) and define the function that should be executed when the event occurs.
     
@@ -102,15 +97,29 @@
     /*document.getElementById("owl").addEventListener(
       "click",
       function (e) {
-        console.log(e);
+        console.log(e); => e is the event object and we can name it anything car, bus, etc.
       },
       false
     );*/
 
+    //SOME EVENTS TO STUDY -
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+    //Event propagation in JavaScript refers to the order in which events are handled as they occur on nested elements within the DOM (Document Object Model). When an event happens on an element, such as a click or a key press, it can trigger handlers not only on that element but also on its ancestor and descendant elements. Event propagation occurs in two phases: capturing phase and bubbling phase.
+
+    Capturing Phase: In this phase, the event is captured by the outermost ancestor element and then propagates inward towards the target element. This means that events start from the root of the DOM tree and move towards the target element. (TOP TO BOTTOM)
+
+    Bubbling Phase: In this phase, the event is triggered on the target element and then propagates outward from the target element to its ancestor elements, moving up the DOM tree. (BOTTOM TO TOP)
+
+
     document.getElementById("images").addEventListener(
       "click",
       function (e) {
-        console.log("clicked inside the ul"); //=>clicked inside the ul
+        console.log("clicked inside the ul"); //=>jb hmne id images li hai to hmare kisi bhi image ko click krne pe 'clicked inside the ul' aayega
       },
       false
     );
@@ -118,7 +127,7 @@
     /*document.getElementById("owl").addEventListener(
       "click",
       function (e) {
-        console.log("owl clicked"); //=>owl clicked, clicked inside the ul=> we got this o/p bcoz of event bubbling
+        console.log("owl clicked"); //=>but jb hmne id owl li hai to hmein ye dhyan dena hai ki owl bhi to images k andar hi hai or agr hm owl pe click krenge to phle 'clicked inside the ul' aayega ya 'owl clicked' aayega=> owl clicked, clicked inside the ul=> we got this o/p bcoz of event bubbling, and event bubbling happens when useCapture is false, we can remember this by an example, jse bubble neeche se upar ko jata hai, vse hi ismein hm inside se outside elements pe jate hai
         e.stopPropagation(); //=> after applying stopPropagation to the event, we only got 'owl clicked', bcoz it stopped the propagation
       },
       false
