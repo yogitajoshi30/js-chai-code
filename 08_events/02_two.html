@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    /*In JavaScript, the `setTimeout()` function is used to execute a specified function or a piece of code after a specified delay. It allows you to schedule a function to run after a certain amount of time has passed. The syntax for `setTimeout()` is as follows:
+    
+    setTimeout(function, delay, param1, param2, ...);
+    
+    - `function`: The function to be executed after the delay.
+    - `delay`: The time, in milliseconds, to wait before executing the function.
+    - `param1`, `param2`, ... (optional): Additional parameters to pass to the function.
+
+    Here's an example of how you can use `setTimeout()`:
+
+    function greet(name) {
+    console.log("Hello, " + name + "!");
+    }
+
+    setTimeout(greet, 2000, "John");
+    
+    In this example, the `greet()` function will be executed after a delay of 2000 milliseconds (or 2 seconds), and it will log "Hello, John!" to the console.
+
+    You can also use an anonymous function directly as the first argument:
+
+    setTimeout(function() {
+    console.log("This code runs after 3 seconds.");
+    }, 3000);
+    
+    This code will log "This code runs after 3 seconds." to the console after a delay of 3000 milliseconds (or 3 seconds).*/
+
+    const changeText = function () {
+      document.querySelector("h1").innerHTML = "best JS series";
+    };
+
+    const changeMe = setTimeout(changeText, 2000);
+
+    /*In JavaScript, `clearTimeout()` is a method used to cancel a timeout previously established by calling `setTimeout()`. When you set a timeout using `setTimeout()`, it executes a specified function or evaluates an expression after a specified number of milliseconds. If you want to cancel this timeout before it triggers, you use `clearTimeout()`.
+
+    Here's the syntax for `clearTimeout()`:
+    
+    clearTimeout(timeoutID);
+    
+    Where `timeoutID` is the identifier returned by `setTimeout()` when you set the timeout.
+
+    Example:
+    // Set a timeout
+
+    const timeoutID = setTimeout(() => {
+      console.log("Timeout executed!");
+    }, 3000); // This timeout will execute after 3000 milliseconds (3 seconds)
+
+    // Later, if you want to cancel the timeout
+    clearTimeout(timeoutID); // This cancels the timeout
+    
+    In this example, if `clearTimeout(timeoutID)` is called before the 3 seconds elapse, the function inside `setTimeout()` will not be executed. If `clearTimeout()` is not called, the function will execute after 3 seconds.*/
+
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearTimeout(changeMe);
+      console.log("STOPPED");
+    });
+
+    //yha pe hmein stop button pe click krne pe clearTimeout chlana hai isliye hmne querySelector ki help se use target krke click event listener lgaya hai
+  </script>
+</html>
