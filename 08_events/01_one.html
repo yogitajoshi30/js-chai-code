@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html Events</title>
+  </head>
+
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <!--<li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+            onclick="alert('owl')" //=> This is not a good approach , and we should avoid it, we should not inject events in html, it should be done in javascript
+          />
+        </li>-->
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <!--<script>
+    //JAVASCRIPT KE ANDAR JITNE BHI EVENTS HOTE HAI VO SEQUENTIALLY HI RUN HOTE HAI, KUCH EXCEPTIONS HOTE HAI JO HM YHA DEKHENGE
+
+
+    /*document.getElementById('owl').onclick = function () {
+        alert("owl clicked")
+    }*/ =>=> This is another approach to apply events on html elements, but this is also not a good approach as it doesn't provides much information and so we should use event listeners bcoz they not only give us the onclick functionality but they give us the propagation ability 
+
+    // attachEvent()- attachEvent was a method used in older versions of Internet Explorer to attach event handlers to HTML elements. It was specific to Internet Explorer and not part of the standard DOM (Document Object Model) API. Its counterpart in modern browsers is the addEventListener method.
+
+    // jQuery - onEvent Listener
+
+    /*In JavaScript, the `addEventListener()` method is used to attach an event handler function to an HTML element. This method allows you to specify the event you want to listen for (such as click, mouseover, keypress, etc.) and define the function that should be executed when the event occurs.
+    
+    Here's the basic syntax of `addEventListener()`:
+
+    element.addEventListener(event, function, useCapture);
+
+    - `element`: The HTML element to which you want to attach the event listener.
+    - `event`: A string representing the event type (e.g., "click", "mouseover", "keydown").
+    - `function`: The function to be executed when the specified event occurs.
+    - `useCapture` (optional): A boolean value indicating whether to use event capturing (true) or event bubbling (false). This parameter is optional and defaults to false.*/
+    
+    /*document.getElementById('owl').addEventListener('click', function () {
+        alert("owl clicked again")
+    })*/
+
+    /*document.getElementById("owl").addEventListener(
+      "click",
+      function (e) {
+        console.log(e); => e is the event object and we can name it anything car, bus, etc.
+      },
+      false
+    );*/
+
+    //SOME EVENTS TO STUDY -
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+    //Event propagation in JavaScript refers to the order in which events are handled as they occur on nested elements within the DOM (Document Object Model). When an event happens on an element, such as a click or a key press, it can trigger handlers not only on that element but also on its ancestor and descendant elements. Event propagation occurs in two phases: capturing phase and bubbling phase.
+
+    Capturing Phase: In this phase, the event is captured by the outermost ancestor element and then propagates inward towards the target element. This means that events start from the root of the DOM tree and move towards the target element. (TOP TO BOTTOM)
+
+    Bubbling Phase: In this phase, the event is triggered on the target element and then propagates outward from the target element to its ancestor elements, moving up the DOM tree. (BOTTOM TO TOP)
+
+
+    document.getElementById("images").addEventListener(
+      "click",
+      function (e) {
+        console.log("clicked inside the ul"); //=>jb hmne id images li hai to hmare kisi bhi image ko click krne pe 'clicked inside the ul' aayega
+      },
+      false
+    );
+
+    /*document.getElementById("owl").addEventListener(
+      "click",
+      function (e) {
+        console.log("owl clicked"); //=>but jb hmne id owl li hai to hmein ye dhyan dena hai ki owl bhi to images k andar hi hai or agr hm owl pe click krenge to phle 'clicked inside the ul' aayega ya 'owl clicked' aayega=> owl clicked, clicked inside the ul=> we got this o/p bcoz of event bubbling, and event bubbling happens when useCapture is false, we can remember this by an example, jse bubble neeche se upar ko jata hai, vse hi ismein hm inside se outside elements pe jate hai
+        e.stopPropagation(); //=> after applying stopPropagation to the event, we only got 'owl clicked', bcoz it stopped the propagation
+      },
+      false
+    );*/
+
+    document.getElementById("google").addEventListener(
+      "click",
+      function (e) {
+        e.preventDefault(); //=> by applying preventDefault to the event, we prevented the default action which was opening google on click, and then the console.log gave us this=> google clicked, clicked inside the ul
+        //e.stopPropagation();//=> google clicked
+        console.log("google clicked");
+      },
+      false
+    );
+
+    document.querySelector("#images").addEventListener("click", function (e) {
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG") {
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode;
+        //removeIt.parentNode.removeChild(removeIt)
+        removeIt.remove();
+      }
+    });
+  </script>-->
+</html>
