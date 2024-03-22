@@ -15,12 +15,12 @@ function createUser(username, email, password) {
 const chaii = new createUser("chai", "chai@fb.com", "123");
 
 console.log(chaii); //=> createUser { email: 'chai@fb.com', password: '123' }
-*/
+
+In your code, you're attempting to create a new user object using the `createUser` function, which internally calls the `SetUsername` function to set the username. However, the way you're calling `SetUsername` will not work as expected because you're losing the context of `this`. You need to bind the context properly or use other methods to make it work. */
+
+//Here's a corrected version of the code:
 
 //RIGHT WAY OF CALL
-/*In your code, you're attempting to create a new user object using the `createUser` function, which internally calls the `SetUsername` function to set the username. However, the way you're calling `SetUsername` will not work as expected because you're losing the context of `this`. You need to bind the context properly or use other methods to make it work. 
-
-Here's a corrected version of your code:*/
 
 function SetUsername(username) {
   this.username = username;
