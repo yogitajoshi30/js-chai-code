@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+
+  <!--It defines a simple webpage with a button that, when clicked, logs a message to the console along with the server URL.
+This code demonstrates basic JavaScript event handling and class instantiation. When the button is clicked, it triggers the handleClick method of the CustomReact class, which logs "button clicked" and the server URL to the console.-->
+
+  <body>
+    <button>Button Clicked</button>
+    <script>
+      class CustomReact {
+        constructor() {
+          this.library = "CustomReact";
+          this.server = "https://localhost:3000";
+
+          // Requirement
+          document
+            .querySelector("button")
+            .addEventListener("click", this.handleClick.bind(this));
+          /*Here, `this.handleClick.bind(this)` ensures that when the `handleClick` method is called in response to a button click event, the `this` keyword inside the `handleClick` method refers to the instance of the `CustomReact` class.
+
+          Without using `bind()`, the value of `this` inside the `handleClick` method would refer to the element that triggered the event (`button` element in this case), which might not be what you want. By using `bind()`, you explicitly bind the `this` context to the instance of the `CustomReact` class, ensuring consistent behavior and access to class properties and methods within the event handler.*/
+        }
+        handleClick() {
+          console.log("button clicked"); //=> button clicked
+
+          console.log(this);
+          /*=> library:"CustomReact"
+          server:"https://localhost:3000"
+          [[Prototype]]: Object*/
+
+          console.log(this.server); //=> https://localhost:3000
+        }
+      }
+
+      const app = new CustomReact();
+    </script>
+  </body>
+</html>
