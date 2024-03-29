@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure aur chai</title>
+  </head>
+  <body style="background-color: #313131">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+
+  <script>
+    //--------------------------LEXICAL SCOPING---------------------------
+
+    /*function init() {
+      let name = "Mozilla";
+      function displayName() {
+        console.log(name); //=> Mozilla
+      }
+      displayName();
+    }
+    init();*/
+
+    /*function outer() {
+      let username = "hitesh";
+      //console.log("OUTER", secret); //=> secret is not defined, secret is not defined in the scope of outer().
+      function inner() {
+        let secret = "my123";
+        console.log("inner", username); //=> inner hitesh
+      }
+      function innerTwo() {
+        console.log("innerTwo", username); //=> innerTwo hitesh
+        //console.log(secret); //=> secret is not defined. It tries to log secret, attempting to access the secret variable declared in inner() function from its outer scope. However, this will result in an error because secret is not accessible in the scope of innerTwo().
+      }
+      inner();
+      innerTwo();
+    }
+    outer();
+    //console.log("TOO OUTER", username); //=> username is not defined, username is scoped within the outer() function and is not accessible outside of it.*/
+
+    //--------------------------CLOSURE----------------------
+
+    function makeFunc() {
+      const name = "Mozilla";
+      function displayName() {
+        console.log(name);
+      }
+      return displayName;
+    }
+
+    const myFunc = makeFunc(); //=> Mozilla
+    myFunc();
+    /*This code defines a function makeFunc() that creates another function displayName(). Inside makeFunc(), there is a variable name set to "Mozilla", and displayName() simply logs the value of name to the console. Finally, makeFunc() returns displayName(), effectively creating a closure where displayName() retains access to the name variable even after makeFunc() has finished executing.
+
+    The line 'const myFunc = makeFunc();' calls makeFunc() and assigns the returned displayName() function to the variable myFunc.
+
+    The subsequent line myFunc(); calls the function stored in myFunc, which is essentially displayName(), resulting in the string "Mozilla" being logged to the console.
+
+    In simpler terms, this code demonstrates closures in JavaScript, where an inner function has access to the variables of its outer function even after the outer function has finished executing. In this case, displayName() retains access to the name variable even though makeFunc() has already returned.
+*/
+  </script>
+  <script>
+    //----------------------PRACTICAL IMPLEMENTATION OF CLOSURE-----------------
+    // document.getElementById("orange").onclick = function(){
+    //     document.body.style.backgroundColor = `orange`
+    // }
+    // document.getElementById("green").onclick = function(){
+    //     document.body.style.backgroundColor = `green`
+    // }
+
+    function clickHandler(color) {
+      // document.body.style.backgroundColor = `${color}`
+
+      return function () {
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+
+    document.getElementById("orange").onclick = clickHandler("orange");
+    document.getElementById("green").onclick = clickHandler("green");
+  </script>
+</html>
